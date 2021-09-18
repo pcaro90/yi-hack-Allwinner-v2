@@ -99,6 +99,13 @@
 #define LOWRES_BYTE_Q321BR_LSX 8
 #define HIGHRES_BYTE_Q321BR_LSX 4
 
+#define BUF_OFFSET_Q321BR 300
+#define BUF_SIZE_Q321BR 524588
+#define FRAME_HEADER_SIZE_Q321BR 26
+#define DATA_OFFSET_Q321BR 4
+#define LOWRES_BYTE_Q321BR 8
+#define HIGHRES_BYTE_Q321BR 4
+
 #define BUF_OFFSET_QG311R 300
 #define BUF_SIZE_QG311R 524588
 #define FRAME_HEADER_SIZE_QG311R 26
@@ -319,6 +326,13 @@ int main(int argc, char **argv) {
             frame_header_size = FRAME_HEADER_SIZE_Q321BR_LSX;
             data_offset = DATA_OFFSET_Q321BR_LSX;
             lowres_byte = LOWRES_BYTE_Q321BR_LSX;
+            highres_byte = HIGHRES_BYTE_Q321BR_LSX;
+        } else if (strcasecmp("q321br", argv[1]) == 0) {
+            buf_offset = BUF_OFFSET_Q321BR;
+            buf_size = BUF_SIZE_Q321BR;
+            frame_header_size = FRAME_HEADER_SIZE_Q321BR;
+            data_offset = DATA_OFFSET_Q321BR;
+            lowres_byte = LOWRES_BYTE_Q321BR;
             highres_byte = HIGHRES_BYTE_Q321BR_LSX;
         } else if (strcasecmp("qg311r", argv[1]) == 0) {
             buf_offset = BUF_OFFSET_QG311R;
