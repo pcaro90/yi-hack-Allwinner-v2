@@ -682,7 +682,7 @@ void print_usage(char *progname)
 {
     fprintf(stderr, "\nUsage: %s [-r RES] [-p PORT] [-d]\n\n", progname);
     fprintf(stderr, "\t-m MODEL, --model MODEL\n");
-    fprintf(stderr, "\t\tset model: y21ga, y211ga, h30ga, r30gb, r40ga, h51ga, h52ga, h60ga, y28ga, q321br, q321br_lsx or qg311r (default y21ga)\n");
+    fprintf(stderr, "\t\tset model: y21ga, y211ga, h30ga, r30gb, r40ga, h51ga, h52ga, h60ga, y28ga, q321br_lsx or qg311r (default y21ga)\n");
     fprintf(stderr, "\t-r RES,   --resolution RES\n");
     fprintf(stderr, "\t\tset resolution: low, high or both (default high)\n");
     fprintf(stderr, "\t-a AUDIO, --audio AUDIO\n");
@@ -766,8 +766,6 @@ int main(int argc, char** argv)
                 model = Y28GA;
             } else if (strcasecmp("q321br_lsx", optarg) == 0) {
                 model = Q321BR_LSX;
-            } else if (strcasecmp("q321br", optarg) == 0) {
-                model = Q321BR;
             } else if (strcasecmp("qg311r", optarg) == 0) {
                 model = QG311R;
             }
@@ -879,8 +877,6 @@ int main(int argc, char** argv)
             model = Y28GA;
         } else if (strcasecmp("q321br_lsx", str) == 0) {
             model = Q321BR_LSX;
-        } else if (strcasecmp("q321br", str) == 0) {
-            model = Q321BR;
         } else if (strcasecmp("qg311r", str) == 0) {
             model = QG311R;
         }
@@ -1037,15 +1033,6 @@ int main(int argc, char** argv)
         highres_byte = HIGHRES_BYTE_Q321BR_LSX;
         model_high_res = RESOLUTION_3K;
         sps_type = SPS_TYPE_Q321BR_LSX;
-    } else if (model == Q321BR) {
-        buf_offset = BUF_OFFSET_Q321BR;
-        buf_size = BUF_SIZE_Q321BR;
-        frame_header_size = FRAME_HEADER_SIZE_Q321BR;
-        data_offset = DATA_OFFSET_Q321BR;
-        lowres_byte = LOWRES_BYTE_Q321BR;
-        highres_byte = HIGHRES_BYTE_Q321BR;
-        model_high_res = RESOLUTION_3K;
-        sps_type = SPS_TYPE_Q321BR;
     } else if (model == QG311R) {
         buf_offset = BUF_OFFSET_QG311R;
         buf_size = BUF_SIZE_QG311R;
